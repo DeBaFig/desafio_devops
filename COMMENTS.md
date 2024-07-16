@@ -22,8 +22,25 @@ Obrigada pela oportunidade e abaixo segue o conteúdo que produzi para o desafio
 Para criar uma API em .NET só precisa de um comando para iníciar:
 
 ```bash
-dotnet new web
+dotnet new web #criar
+dotnet run #rodar
 ```
+
+Pronto, já tenho a base para começar, e poderia mudar mas a porta foi configurada no 5042
+
+![](/CommentsImages/1.jpg)
+
+Posso ver o Hello World no navegador.
+![](/CommentsImages/2.jpg)
+
+
+
+![](/CommentsImages/1.jpg)
+![](/CommentsImages/1.jpg)
+![](/CommentsImages/1.jpg)
+![](/CommentsImages/1.jpg)
+![](/CommentsImages/1.jpg)
+![](/CommentsImages/1.jpg)
 
 ### Automação da infra, provisionamento dos hosts 
 

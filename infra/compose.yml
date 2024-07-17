@@ -1,0 +1,12 @@
+services:
+  terraform:
+    image: cedricguadalupe/terraform-gcloud
+    container_name: terraform
+    stdin_open: true 
+    tty: true 
+    working_dir: /app
+    entrypoint: ''
+    command: sh
+    volumes:
+      - C:/0/Denize_Bassi/infra:/app
+  

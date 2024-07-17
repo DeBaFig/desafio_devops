@@ -53,6 +53,21 @@ Usando o postman consegui localmente os resultados esperados:
 
 Agora para conteinerização desse código...
 
+Seguindo alguns guias para criar o [Dockerfile da API em .Net](https://learn.microsoft.com/en-us/visualstudio/containers/container-build?view=vs-2022)
+
+Além disso, tive que mudar algumas coisas no .csproj para conseguir fazer o container.
+
+Para construir meu container:
+````bash
+docker build -t desafio_devops .
+````
+
+Para subir ele e testar localmente:
+````bash
+docker run --name desafioDevops -p 8080:8080 desafio_devops
+````
+Então agora se eu quiser ver meu container funcionando localmente posso acessar a porta que configurei...
+
 ### Automação da infra, provisionamento dos hosts 
 
 ### Automação de setup e configuração dos hosts

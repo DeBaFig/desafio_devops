@@ -23,7 +23,7 @@ Para criar uma API em .NET só precisa de um comando para iníciar:
 
 ```bash
 dotnet new web #criar
-dotnet run #rodar
+dotnet watch run #roda e a cada alteração faz um hot reload
 ```
 
 Pronto, já tenho a base para começar, e poderia mudar mas a porta foi configurada no 5042
@@ -33,14 +33,25 @@ Pronto, já tenho a base para começar, e poderia mudar mas a porta foi configur
 Posso ver o Hello World no navegador.
 ![](/CommentsImages/2.jpg)
 
+O código é bem simples, uma lambda para salvar em uma lista em memória e um lambda para buscar o item:
 
+```cs
+app.MapPost("/api/comment/new", (Comment comment) => {
+    commentsList.Add(comment);
+    return TypedResults.Created("/api/comment/list/{id}", comment);
+});
 
-![](/CommentsImages/1.jpg)
-![](/CommentsImages/1.jpg)
-![](/CommentsImages/1.jpg)
-![](/CommentsImages/1.jpg)
-![](/CommentsImages/1.jpg)
-![](/CommentsImages/1.jpg)
+app.MapGet("/api/comment/list/{id}", Results<Ok<Comment>, NotFound> (int id) => {
+    var commentFound = commentsList.FirstOrDefault(m => m.content_id == id);
+    return  commentFound is null ? TypedResults.NotFound() : TypedResults.Ok(commentFound);
+});
+```
+
+Usando o postman consegui localmente os resultados esperados:
+
+![](/CommentsImages/3.jpg)
+
+Agora para conteinerização desse código...
 
 ### Automação da infra, provisionamento dos hosts 
 

@@ -101,7 +101,7 @@ Criei minha conta, e um projeto:
 
 Fiz login na minha conta usando o seguinte comando dentro do container rodando o terraform e gcloud cli
 ```bash
-docker exec -it terraform .bash #entro no container para usar comandos bash diretamente nele
+docker exec -it terraform bash #entro no container para usar comandos bash diretamente nele
 
 gcloud auth application-default login
 #depois de logar 
@@ -237,6 +237,23 @@ E tenho agora um state no meu bucket e minha instância criada
 ![](/CommentsImages/8.jpg)
 
 ### Automação de setup e configuração dos hosts
+
+Após configurado o primeiro setup do terraform fui pesquisar do Ansible, eu nunca tinha utilizado, então estou experimetando utilizar diretamente em uma instância no gcp, para isso vi um [tutorial na internet](https://mydevops353097059.wordpress.com/dockerize-a-net-core-application-with-ansible-2/) para me ajudar nessa empreitada. 
+
+Alguns vídeos e varios testes depois, adicionei no meu terraform uma instância que vai usar o Ansible. Coloquei a configuração em um novo arquivo e adicionei um startup script que já vai atualizar minha VM e instalar o Ansible
+
+O trecho abaixo é o que vai criar a instância e já instalar o Ansible:
+
+````
+metadata = {
+    startup-script = "apt-get update \n apt-get install software-properties-common \n apt-add-repository ppa:ansible/ansible \n apt-get update \n apt-get -y install ansible"
+  }
+````
+![](/CommentsImages/9.jpg)
+
+Legal! Mesmo sendo meu primeiro acesso a VM, já está instalado o Ansible
+
+Agora para configurar minha outra máquina vou precisar alterar meu arquivo host adicionando o IP gerado.
 
 ### Pipeline de CI/CD automatizado
 

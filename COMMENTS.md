@@ -238,7 +238,7 @@ E tenho agora um state no meu bucket e minha instância criada
 
 ### Automação de setup e configuração dos hosts
 
-Após configurado o primeiro setup do terraform fui pesquisar do Ansible, eu nunca tinha utilizado, então estou experimetando utilizar diretamente em uma instância no gcp, para isso vi um [tutorial na internet](https://mydevops353097059.wordpress.com/dockerize-a-net-core-application-with-ansible-2/) para me ajudar nessa empreitada. 
+Após configurado o primeiro setup do terraform fui pesquisar do Ansible, eu nunca tinha utilizado, então estou experimetando utilizar diretamente em uma instância no gcp, para isso vi alguns [tutoriais na internet](https://mydevops353097059.wordpress.com/dockerize-a-net-core-application-with-ansible-2/) com [guias](https://devopsartisan.ro.digital/blog/ansible-google-cloud-platform) para me ajudar nessa empreitada. 
 
 Alguns vídeos e varios testes depois, adicionei no meu terraform uma instância que vai usar o Ansible. Coloquei a configuração em um novo arquivo e adicionei um startup script que já vai atualizar minha VM e instalar o Ansible
 

@@ -1,0 +1,23 @@
+name: Deploy to Docker Hub
+
+on:
+  push:
+    branches: [ main, dev ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest 
+
+    steps:
+      - uses: actions/checkout@v3 
+
+      - name: Login to Docker Hub (or your container registry)
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t debafig/desafio-devops-denize .
+          docker push debafig/desafio-devops-denize:latest
